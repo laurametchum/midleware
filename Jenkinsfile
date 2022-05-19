@@ -6,8 +6,6 @@ pipeline {
     tools {
   maven 'M2_HOME'
 }
-   
-
     stages {
         stage('maven package') {
             steps {
@@ -19,20 +17,18 @@ pipeline {
           stage('test') {
             steps {
                sh 'mvn test'
-                
             }
         }
-         
           stage('deploy') {
             steps {
                 echo 'deployement'
               sleep 10
             }
+          }
             stage ('docker'){
               steps{
             echo 'image step'
               }
             }
-        }
     }
 }
